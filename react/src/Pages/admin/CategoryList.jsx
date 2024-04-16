@@ -10,7 +10,7 @@ function CategoryList() {
 ///////////////////////////
     const [edit,setEdit] = useState(0); // to check edit button click or not
     const [updateName,setUpdateName] = useState('');
-    const UpdateUIChange = (id,name)=>{
+    const UpdateUIChange =(id,name)=>{
         setUpdateName(name);
         setEdit(id);
     }
@@ -96,7 +96,7 @@ function CategoryList() {
                     <button onClick={()=>Delete(c.id)} className='py-1 px-2 bg-red-500 rounded me-3 text-white hover:bg-red-600'>Delete</button>
                     </td>
             </tr>
-                ))
+))
             }
             
         </tbody>
