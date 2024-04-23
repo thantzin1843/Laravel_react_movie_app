@@ -32,3 +32,44 @@ body{
 .adminLinks:hover{
     color:white;
 }
+
+.heroContainer{
+    background: url('https://user-images.githubusercontent.com/33485020/108069438-5ee79d80-7089-11eb-8264-08fdda7e0d11.jpg');
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+
+}
+.grayScale{
+    width:100%;
+    min-height:100vh;
+    background-color:#071e3d99;
+}
+.overlay{
+    opacity: 0;
+    margin-bottom: -40px;
+    transition: all 0.5s ease;
+}
+.trImage{
+    transition: all 0.5s ease;
+}
+.trcard:hover .overlay{
+        opacity: 1;
+        margin-bottom: 0px;
+        transition: all 0.5s ease;
+} 
+.trcard:hover .trImage{
+    scale: 1.1;
+}
+
+.trailor:hover{
+    background-color:#00000055
+}
+
+@media(max-width:768px){
+    .heroImg{
+        text-align: center;
+        width:50%;
+        height: 250px;
+    }
+}
