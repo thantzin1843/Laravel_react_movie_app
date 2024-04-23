@@ -4,6 +4,7 @@ import axiosClient from '../../../axiosClient';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import GreenButton from '../../Components/GreenButton';
 
 function CategoryList() {
     const [categories, setCategories] = useState([]);
@@ -60,7 +61,7 @@ function CategoryList() {
   return (
     <div class="relative overflow-x-auto m-5">
         <ToastContainer/>
-    <Link to='/admin/category/create' className='bg-green-500 p-1 rounded-md flex items-center sm:w-1/5 w-full justify-center'>Create New Category</Link>
+    <GreenButton text='Create New Category' path='/admin/category/create'/>
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 mt-5 ">
         <thead class="text-xs text-gray-700 uppercase bg-gray-400 text-white ">
             <tr>

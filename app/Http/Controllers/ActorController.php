@@ -18,6 +18,14 @@ class ActorController extends Controller
         ]);
     }
 
+    public function actorList(){
+        $actors = Actor::orderBy('name')->get();
+        return response()->json([
+            'message'=>'retrieve success',
+            'actors'=>$actors,
+        ]);
+    }
+
     public function createActor(ActorRequest $request){
         $actor = $request->validated();
         

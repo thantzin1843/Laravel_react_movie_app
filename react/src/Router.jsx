@@ -10,14 +10,43 @@ import CategoryCreate from './Pages/admin/CategoryCreate'
 import AdminActorList from './Pages/admin/AdminActorList'
 import AdminMovieList from './Pages/admin/AdminMovieList'
 import AdminMovieCreate from './Pages/admin/AdminMovieCreate'
+import Home from './Pages/Home'
+import MovieDetail from './Pages/MovieDetail'
+import Menu from './Components/Menu'
+import UserLayout from './Pages/UserLayout'
+import Signup from './Pages/Signup'
+import Login from './Pages/Login'
 export const router = createBrowserRouter([
     {
         path:'/',
         element:<App/>,
         children:[
             {
+                path:'',
+                element:<Home/>
+            },
+            {
+                path:'signup',
+                element:<Signup/>
+            },
+            {
+                path:'login',
+                element:<Login/>
+            },
+
+        ]
+    },
+    {
+        path:'/user',
+        element:<UserLayout/>,
+        children:[
+            {
                 path:'movie/list',
                 element:<MovieList/>
+            },
+            {
+                path:'movie/detail/:id',
+                element:<MovieDetail/>
             },
             {
                 path:'actor/list',

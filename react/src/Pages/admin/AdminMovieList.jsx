@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import GreenButton from '../../Components/GreenButton'
 function AdminMovieList() {
   return (
     <div class="relative overflow-x-auto m-5">
-    <Link to='/admin/movie/create' className='bg-green-500 p-1 rounded-md flex items-center sm:w-1/5 w-full justify-center'>Create Movie</Link>
+    <GreenButton text='Create New Actor' path='/admin/movie/create'/>
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 mt-5 ">
         <thead class="text-xs text-gray-700 uppercase bg-gray-400 text-white ">
             <tr>

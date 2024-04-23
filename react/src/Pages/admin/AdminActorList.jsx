@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import axiosClient from '../../../axiosClient';
 import { notifyProcess } from '../../Components/alert';
 import { ToastContainer } from 'react-toastify';
+import Pagination from '../../Components/Pagination';
+import GreenButton from '../../Components/GreenButton';
 function ActorList() {
     ////for pagination ////////////////
-    // const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     /////////////
@@ -13,8 +14,6 @@ function ActorList() {
     const fetchData = () =>{
         axiosClient.get(`/actor/list?page=${currentPage}`)
         .then((res)=>{
-            // setActors(res.data.actors.data[0].name);
-            // console.log(res.data.actors.last_page);
             setActors(res.data.actors.data);
             setTotalPages(res.data.actors.last_page);
         })
@@ -41,17 +40,10 @@ function ActorList() {
         
     }
 
-    const generateButton =()=>{
-        const jsxElements = [];
-        for (let i = 1; i <= totalPages; i++) {
-        jsxElements.push(<button onClick={()=>setCurrentPage(i)} className='p-2 bg-white text-blue-600 mt-3 ms-1 rounded-md '>{i}</button>);
-        }
-        return jsxElements;
-    }
   return (
-    <div class="relative overflow-x-auto m-5">
+    <div class="relative overflow-x-auto m-3">
         <ToastContainer/>
-    <Link to='/admin/actor/create' className='bg-green-500 p-1 rounded-md flex items-center sm:w-1/5 w-full justify-center'>Create New Actor</Link>
+    <GreenButton text='Create New Actor' path='/admin/actor/create'/>
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 mt-5 ">
         <thead class="text-xs text-gray-700 uppercase bg-gray-400 text-white ">
             <tr>
@@ -90,18 +82,13 @@ function ActorList() {
             </tr>
                 })
            }
-           {/* <tr><td>{actors[0].name}</td></tr> */}
+
         </tbody>
     </table>
 
    {/* pagianation control */}
-           <button onClick={()=>handlePageChange(currentPage-1)} disabled={currentPage===1} className='p-2 bg-white text-blue-600 mt-3 rounded-md '>Previous</button>
-           
-            {
-            generateButton()
-            }
-            
-           <button onClick={()=>handlePageChange(currentPage+1)} disabled={currentPage===totalPages} className='p-2 bg-white text-blue-600 mt-3 ms-1 rounded-md '>Next</button>
+        <Pagination handlePageChange={handlePageChange} currentPage={currentPage} 
+        totalPages={totalPages} setCurrentPage={setCurrentPage}/>
 </div>
   )
 }

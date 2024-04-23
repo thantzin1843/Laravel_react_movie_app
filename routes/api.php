@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActorController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -27,5 +28,9 @@ Route::get('/category/delete/{id}',[CategoryController::class,'deleteCategory'])
 
 //actor
 Route::get('/actor/list',[ActorController::class,'index']);
+Route::get('/actor/list/user',[ActorController::class,'actorList']); //for user
 Route::post('/create/actor',[ActorController::class,'createActor']);
 Route::get('/actor/delete/{id}',[ActorController::class,'deleteActor']);
+
+// movie
+Route::post('/create/movie',[MovieController::class,'createMovie']);
